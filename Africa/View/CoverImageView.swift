@@ -16,6 +16,6 @@ struct CoverImageView: View {
 struct CoverImageView_Previews: PreviewProvider {
     static var previews: some View {
         CoverImageView()
-        .
+        git
     }
 }
