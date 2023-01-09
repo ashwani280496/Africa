@@ -9,24 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
   let animals: [AnimalModel] = Bundle.main.decode("animals.json")
-
-    var body: some View {
-      NavigationView {
-        List {
-          CoverImageView()
-            .frame(height: 300)
-            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-          
-          ForEach(animals) { item in
+  
+  var body: some View {
+    NavigationView {
+      List {
+        CoverImageView()
+          .frame(height: 300)
+          .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+        ForEach(animals) { item in
+          NavigationLink(destination: AnimalDetailView(animal: item)) {
             AnimationListItemView(animal: item)
-          }
-        }.navigationBarTitle("Africa", displayMode: .large)
-      }//: Navigation
-    }
+          }//: Link
+        }
+      }.navigationBarTitle("Africa", displayMode: .large)
+    }//: Navigation
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
